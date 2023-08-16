@@ -9,7 +9,7 @@ import { setLoading } from 'store/slices/uiSlice';
 import { Toaster } from 'react-hot-toast';
 
 
-export const getServerSideProps = async (params) => {
+export const getStaticProps = async (params) => {
   const response = await fetch('https://avocado-store-27222.vercel.app/api/avo');
   const { data:productList } = await response.json();
   return {
