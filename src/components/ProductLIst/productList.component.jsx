@@ -40,7 +40,7 @@ function MediaCard({avocado}) {
   };
 
   return (
-    <div className="w-[330px] max-w-sm bg-white border border-gray-200 rounded-lg shadow transition-transform duration-300 ease-in-out transform hover:translate-y-[-5px] flex flex-col justify-center items-center ">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow transition-transform duration-300 ease-in-out transform hover:translate-y-[-5px] flex flex-col justify-center items-center ">
       <Link href={`/product/${avocado.id}`} >
         <div className="px-5 pb-5 w-full h-full">
             <Image src={avocado.image} alt={avocado.name} width={300} height={300} priority={true}/>

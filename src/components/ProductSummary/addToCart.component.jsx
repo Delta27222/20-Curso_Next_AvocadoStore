@@ -49,6 +49,7 @@ export const AddToCartComponent = ({ product }) => {
   return (
     <div className='my-3'>
       <Input
+      size='mini'
         type="number"
         placeholder="Quantity"
         value={quantity}

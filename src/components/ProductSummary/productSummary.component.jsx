@@ -25,7 +25,7 @@ export const ProductSummaryComponent = ({ avocado }) => {
         ? <div className='flex flex-col justify-center items-center max-w-[60%]'>
             <div className='flex sm:flex-row flex-col justify-center items-center my-10'>
               <Image src={avocado.image} alt={avocado.name} width={250} height={250} priority={true}/>
-              <div className='ml-10 flex flex-col items-star justify-between'>
+              <div className='flex flex-col items-star justify-between w-fit'>
                 <h5 className="text-[20px] font-semibold tracking-tight text-gray-900 ">{avocado.name}</h5>
                 <div className='flex flex-col'>
                   <span className="text-[16px] font-normal text-gray-900 mr-3">{avocado.price} $</span>

@@ -9,7 +9,7 @@ export const NavbarComponent = ({}) => {
   const cartCount = useSelector(state => state.data.avocadosCart.length,shallowEqual);
 
   return (
-    <nav className="h-[65px] flex flex-col justify-center  shadow-sm border-1 mb-10">
+    <nav className="h-[65px] w-full flex flex-col justify-center  shadow-sm border-1 mb-10">
       <ul className="flex flex-row mm:justify-between sm:justify-center items-center">
         <li className="hover:bg-dimGray h-[63px] px-3 flex justify-center items-center">
           <Link href="/">
