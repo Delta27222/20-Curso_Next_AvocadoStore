@@ -1,6 +1,6 @@
 import Database from "@database/db";
 
-
+ 
 const allAvos = async(request, response) => {
   const database = new Database()
   const data = await database.getAll();
