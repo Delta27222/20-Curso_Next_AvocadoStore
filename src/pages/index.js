@@ -8,10 +8,29 @@ import { fetchAvocadosWithDetails } from 'store/slices/dataSlice';
 import { setLoading } from 'store/slices/uiSlice';
 import { Toaster } from 'react-hot-toast';
 
-const Home = () => {
 
-  const dispatch = useDispatch();
-  useEffect(() => {
+export const useGetServerSideProps = (params) => {
+  const dispatch = useDispatch()
+  dispatch(setLoading(true))
+  dispatch(fetchAvocadosWithDetails())
+  setTimeout(() => {
+    dispatch(setLoading(false))
+  }, 3000);
+  const avocados = useSelector(state => state.data.avocados,shallowEqual);
+  console.log("🚀 ~ file: index.js:20 ~ useGetServerSideProps ~ avocados:", avocados)
+  return {
+    props: {
+      productList: avocados
+
+    }
+  }
+}
+
+const Home = ({ productList }) => {
+  const loading = useSelector(state => state.ui.loading,shallowEqual);
+  const dispatch = useDispatch()
+
+  useEffect(() => { // Siempre se ejecuta en el navegador (Client Side Rendering)
     dispatch(setLoading(true))
     dispatch(fetchAvocadosWithDetails())
     setTimeout(() => {
@@ -19,7 +38,7 @@ const Home = () => {
     }, 3000);
   },[])
   const avocados = useSelector(state => state.data.avocados,shallowEqual);
-  const loading = useSelector(state => state.ui.loading,shallowEqual);
+  console.log("🚀 ~ file: index.js:41 ~ Home ~ avocados:", avocados)
 
   return (
     <div className='mx-10 flex flex-col justify-center items-center'>
