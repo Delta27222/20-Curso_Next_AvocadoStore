@@ -6,6 +6,7 @@ import { Spinner } from '@nextui-org/react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { fetchAvocadosWithDetails } from 'store/slices/dataSlice';
 import { setLoading } from 'store/slices/uiSlice';
+import { Toaster } from 'react-hot-toast';
 
 const Home = () => {
 
@@ -26,6 +27,7 @@ const Home = () => {
         <h1 className='flex justify-center items-center font-bold text-2xl my-4'>Avocado <Avocado/> Avocado</h1>
         <p className='mb-4 text-blue-400'>¿Deberia comer un aguacate hoy?</p>
       </div>
+      <Toaster/>
       {!loading
         ? <ProductListComponent avocados={avocados}/> 
         : <div className='h-[450px] flex justify-center'>

@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@nextui-org/react';
-import { useFunctions } from 'hooks/useFunctions';
 import { useDispatch } from 'react-redux';
 import { addProduct } from 'store/slices/dataSlice';
+import toast from 'react-hot-toast';
 
 function MediaCard({avocado}) {
   const [iconStarCount, setIconStarCount] = useState([])
@@ -33,6 +33,8 @@ function MediaCard({avocado}) {
   const dispach = useDispatch();
 
   const handleClick = () => {
+    toast.success( `Producto Agregado 🥑`)
+
     dispach(addProduct({
       product: avocado,
       cant: 1
