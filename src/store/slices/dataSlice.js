@@ -11,8 +11,6 @@ export const fetchAvocadosWithDetails = createAsyncThunk(
   async (_, { dispatch }) => {
     try {
       const avocadosRes = await fetchAvocados();
-      console.log("🚀 ~ file: dataSlice.js:14 ~ avocadosRes:", avocadosRes)
-      
       dispatch(setAvocados(avocadosRes));
     } catch (error) {
       console.error('Error fetching avocados:', error);
@@ -26,7 +24,7 @@ export const dataSlice = createSlice({
   initialState,
   reducers:{
     setAvocados: (state, action) => {
-      state.avocados = action.payload.data
+      state.avocados = action.payload
     },
     addProduct: (state, action) => {
       const avocadoIndex = state.avocadosCart.findIndex((avocado) => avocado.product.id === action.payload.product.id)

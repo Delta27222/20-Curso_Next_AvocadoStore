@@ -4,42 +4,32 @@ import React, { useEffect, useState } from 'react'
 import { ProductListComponent } from '@components/index';
 import { Spinner } from '@nextui-org/react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { fetchAvocadosWithDetails } from 'store/slices/dataSlice';
+import { fetchAvocadosWithDetails, setAvocados } from 'store/slices/dataSlice';
 import { setLoading } from 'store/slices/uiSlice';
 import { Toaster } from 'react-hot-toast';
 
 
-export const useGetServerSideProps = (params) => {
-  const dispatch = useDispatch()
-  dispatch(setLoading(true))
-  dispatch(fetchAvocadosWithDetails())
-  setTimeout(() => {
-    dispatch(setLoading(false))
-  }, 3000);
-  const avocados = useSelector(state => state.data.avocados,shallowEqual);
-  console.log("🚀 ~ file: index.js:20 ~ useGetServerSideProps ~ avocados:", avocados)
+export const getServerSideProps = async (params) => {
+  const response = await fetch('https://avocado-store-27222.vercel.app/api/avo');
+  const { data:productList } = await response.json();
   return {
     props: {
-      productList: avocados
-
+      productList
     }
   }
 }
 
 const Home = ({ productList }) => {
-  const loading = useSelector(state => state.ui.loading,shallowEqual);
   const dispatch = useDispatch()
-
+  const loading = useSelector(state => state.ui.loading,shallowEqual);
+  const avocados = useSelector(state => state.data.avocados,shallowEqual);
   useEffect(() => { // Siempre se ejecuta en el navegador (Client Side Rendering)
     dispatch(setLoading(true))
-    dispatch(fetchAvocadosWithDetails())
+    dispatch(setAvocados(productList))
     setTimeout(() => {
       dispatch(setLoading(false))
     }, 3000);
   },[])
-  const avocados = useSelector(state => state.data.avocados,shallowEqual);
-  console.log("🚀 ~ file: index.js:41 ~ Home ~ avocados:", avocados)
-
   return (
     <div className='mx-10 flex flex-col justify-center items-center'>
       <div className='flex flex-col'>
