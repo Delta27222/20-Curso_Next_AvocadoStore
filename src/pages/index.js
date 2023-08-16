@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <div className='mx-10 flex flex-col justify-center items-center'>
       <div className='flex flex-col'>
-        <h1 className='flex justify-center items-center font-bold text-2xl my-4'>Avocado <Avocado/> Avocado</h1>
-        <p className='mb-4 text-blue-400'>¿Deberia comer un aguacate hoy?</p>
+        <h1 className='flex justify-center items-center font-bold text-2xl my-4'>Avocado <Avocado/> Store</h1>
+        <p className='mb-4 text-blue-400'>Should I eat an avocado today?</p>
       </div>
       <Toaster/>
       {!loading

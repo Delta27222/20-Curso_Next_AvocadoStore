@@ -33,7 +33,7 @@ function MediaCard({avocado}) {
   const dispach = useDispatch();
 
   const handleClick = () => {
-    toast.success( `Producto Agregado 🥑`)
+    toast.success( `Added product 🥑`)
 
     dispach(addProduct({
       product: avocado,
