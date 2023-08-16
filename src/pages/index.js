@@ -28,7 +28,7 @@ const Home = ({ productList }) => {
     dispatch(setAvocados(productList))
     setTimeout(() => {
       dispatch(setLoading(false))
-    }, 3000);
+    }, 1000);
   },[])
   return (
     <div className='mx-10 flex flex-col justify-center items-center'>

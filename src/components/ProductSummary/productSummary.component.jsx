@@ -14,9 +14,9 @@ export const ProductSummaryComponent = ({ avocado }) => {
 
   //Mostramos un Spinner de carga
   loadingAll();
-  
+
   //Por alguna razon da un error en consola cuando uso este loading de mi store
-  // const loadings = useSelector(state => state.ui.loading,shallowEqual);  
+  // const loadings = useSelector(state => state.ui.loading,shallowEqual);
 
 
   return (
