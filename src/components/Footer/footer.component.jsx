@@ -7,7 +7,7 @@ const footerLinks = {
   links: [
     {
       title: 'About us',
-      opciones: ['Conoce más'],
+      opciones: ['Learn more'],
       pageLink: ['/about']
     },
     {
