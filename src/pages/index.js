@@ -11,7 +11,7 @@ import { Toaster } from 'react-hot-toast';
 
 export const getStaticProps = async (params) => {
   const response = await fetch('https://avocado-store-27222.vercel.app/api/avo');
-  const { data:productList } = await response.json();
+  const { data: productList } = await response.json();
   return {
     props: {
       productList
