@@ -6,6 +6,7 @@ import { Button } from '@nextui-org/react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from 'store/slices/dataSlice';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 function MediaCard({avocado}) {
   const [iconStarCount, setIconStarCount] = useState([])
@@ -41,8 +42,23 @@ function MediaCard({avocado}) {
     }))
   };
 
+  const router = useRouter();
+  const onClickd = (id) => {
+    router.push(`/product/${id}`, undefined, { shallow: true })
+  }
+
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow transition-transform duration-300 ease-in-out transform hover:translate-y-[-5px] flex flex-col justify-center items-center ">
+      {/* <div  onClick={() => onClickd(avocado.id)}>
+        <div className="px-5 pb-5 w-full h-full">
+            <Image src={avocado.image} alt={avocado.name} width={300} height={300} priority={true}/>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">{avocado.name}</h5>
+            <div className="flex items-center mt-2.5 mb-5">
+              {iconStarCount}
+            </div>
+            <span className="text-3xl font-bold text-gray-900 mr-3">${avocado.price}</span>
+        </div>
+      </div> */}
       <Link href={`/product/${avocado.id}`} >
         <div className="px-5 pb-5 w-full h-full">
             <Image src={avocado.image} alt={avocado.name} width={300} height={300} priority={true}/>
