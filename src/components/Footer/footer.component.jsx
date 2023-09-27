@@ -33,7 +33,7 @@ export const FooterComponent = ({}) => {
     <footer className='flex flex-col justify-center items-center border-t-1 my-10'>
       <ul className='flex mm:flex-col xs:flex-row justify-between max-w-[60%] list-none  my-10'>
         {footerLinks.links.map((link, index) => (
-        <div key={index} className={` ${index === 0 ? 'mt-0' : 'mt-5'} `}>
+        <div key={index} className={` ${index === 0 ? 'mt-0' : 'mm:mt-5 xs:mt-0'} `}>
           <h2 className="text-lg font-bold mm:mb-0 xs:mb-5">{link.title}</h2>
           <ul key={index} className={` ${index !== footerLinks.links.length -1 ? 'mr-32' : 'mr-0'} `}>
             {link.opciones.map((opcion, idx) => (
